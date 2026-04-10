@@ -5,6 +5,7 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
+import "./website-top-banner.js";
 
 /**
  * `website-project`
@@ -20,12 +21,8 @@ export class WebsiteProject extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
+    this.logo = "";
+    this.leagueName = "";
     this.registerLocalization({
       context: this,
       localesPath:
@@ -38,7 +35,8 @@ export class WebsiteProject extends DDDSuper(I18NMixin(LitElement)) {
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      logo: { type: String, reflect: true},
+      leagueName: { type: String, reflect: true},
     };
   }
 
@@ -64,11 +62,16 @@ export class WebsiteProject extends DDDSuper(I18NMixin(LitElement)) {
 
   // Lit render the HTML
   render() {
+    console.log("leagueName:", this.leagueName);
     return html`
+<website-top-banner 
+    logo="${this.logo}" 
+    .leagueName="${this.leagueName}">
+</website-top-banner>
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
   <slot></slot>
-</div>`;
+</div>
+ `;   
   }
 
   /**
