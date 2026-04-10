@@ -6,6 +6,8 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import "./website-top-banner.js";
+import "./website-nav-menu.js";
+import "./website-schedule.js";
 
 /**
  * `website-project`
@@ -62,16 +64,20 @@ export class WebsiteProject extends DDDSuper(I18NMixin(LitElement)) {
 
   // Lit render the HTML
   render() {
-    console.log("leagueName:", this.leagueName);
     return html`
-<website-top-banner 
-    logo="${this.logo}" 
-    .leagueName="${this.leagueName}">
-</website-top-banner>
-<div class="wrapper">
-  <slot></slot>
-</div>
- `;   
+      <website-top-banner 
+          logo="${this.logo}" 
+          .leagueName="${this.leagueName}">
+      </website-top-banner>
+  
+      <website-nav-menu></website-nav-menu>
+  
+      <div class="wrapper">
+        <slot></slot>
+      </div>
+  
+      <website-schedule></website-schedule>
+    `;
   }
 
   /**
