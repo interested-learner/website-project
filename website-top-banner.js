@@ -60,17 +60,18 @@ export class WebsiteTopBanner extends DDDSuper(I18NMixin(LitElement)) {
         position: relative;
       }
       .league-name {
-        font-size: var(--website-top-banner-league-name-font-size, var(--ddd-font-size-m));
+        font-size: var(--ddd-font-size-m);
         text-align: center;
         margin-top: 0px;
         position: absolute;
         transform: translateX(-50%);
         left: 50%;
         color: light-dark(var(--ddd-theme-default-nittanyNavy), var(--ddd-theme-default-white));
+
       }
       img {
-        width: 150px;
-        height: 150px;
+        width: 400px;
+        height: 225px;
       }
       h3 {
         text-align: center;
