@@ -14,15 +14,21 @@ export class WebsiteHeroBanner extends DDDSuper(LitElement) {
         color-scheme: light dark;
       }
       .hero {
-        background-color: light-dark(var(--ddd-theme-default-nittanyNavy), var(--ddd-theme-default-coalyGray));
+        background-image: url("https://i.ibb.co/JjQrJDn2/Gemini-Generated-Image-659cb9659cb9659c.png");
+        background-size: cover;
+        background-position: center;
         color: light-dark(var(--ddd-theme-default-white), var(--ddd-theme-default-skyLight));
         text-align: center;
         padding: var(--ddd-spacing-16) var(--ddd-spacing-4);
+        height: 450px;
+        opacity: 0.8;
       }
       h1 {
         font-size: var(--ddd-font-size-4x);
         margin: var(--ddd-spacing-0);
         text-transform: uppercase;
+        text-align: center;
+        margin-top: var(--ddd-spacing-25);
       }
       p {
         font-size: var(--ddd-font-size-m);

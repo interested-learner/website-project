@@ -58,6 +58,7 @@ export class WebsiteTopBanner extends DDDSuper(I18NMixin(LitElement)) {
         box-sizing: border-box;
         align-items: center;
         position: relative;
+        font-weight: 700;
       }
       .league-name {
         font-size: var(--ddd-font-size-m);
@@ -67,8 +68,42 @@ export class WebsiteTopBanner extends DDDSuper(I18NMixin(LitElement)) {
         transform: translateX(-50%);
         left: 50%;
         color: light-dark(var(--ddd-theme-default-nittanyNavy), var(--ddd-theme-default-white));
-
+       
       }
+      .hover-underline {
+  font-size: 2rem;
+  color: black;
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after,
+.hover-underline::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--ddd-theme-default-inventOrange), var(--ddd-theme-default-opportunityGreen));
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+.hover-underline::before {
+  top: -5px;
+  transform-origin: left;
+}
+
+.hover-underline:hover::after,
+.hover-underline:hover::before {
+  transform: scaleX(1);
+}
+      
+      
+
+      
       img {
         width: 400px;
         height: 225px;
@@ -84,15 +119,15 @@ export class WebsiteTopBanner extends DDDSuper(I18NMixin(LitElement)) {
 
   // Lit render the HTML
   render() {
-    console.log("leagueName:", this.leagueName);
     return html`
+    
 <div class="wrapper">
     <img src="${this.logo}" alt="Logo">
-    <div class="league-name">${this.leagueName}</div>
-  <slot></slot>
+    <div class="league-name hover-underline">${this.leagueName}</div>
+  
 </div>
 
-`;
+    `;
 
   }
 
