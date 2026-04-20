@@ -23,7 +23,9 @@ export class WebsiteSchedule extends DDDSuper(LitElement) {
 
   connectedCallback() {
     super.connectedCallback();
-    fetch("/api/schedule.json")
+    
+    const dataURL = new URL("./api/schedule.json", import.meta.url).href;
+    fetch(dataURL)
       .then(res => res.json())
       .then(data => {
         this.games = data.games;
