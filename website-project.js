@@ -28,12 +28,6 @@ export class WebsiteProject extends DDDSuper(I18NMixin(LitElement)) {
     super();
     this.logo = "";
     this.leagueName = "";
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/website-project.ar.json", import.meta.url).href +
-        "/../",
-    });
   }
 
   // Lit reactive properties
