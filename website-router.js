@@ -5,6 +5,7 @@ import "./website-hero-banner.js";
 import "./website-news-band.js";
 import "./website-stats-band.js";
 import "./website-teams-page.js";
+import "./website-calendar.js";
 
 export class WebsiteRouter extends DDDSuper(LitElement) {
 
@@ -47,19 +48,38 @@ export class WebsiteRouter extends DDDSuper(LitElement) {
 
   render() {
     if (this.page === "schedule") {
-      return html`<website-schedule></website-schedule>`;
+      return html`<website-calendar></website-calendar>`;
     }
     if (this.page === "teams") {
-      return html`<website-teams-page></website-teams-page>
+      return html`<website-teams-page></website-teams-page>`;
+    }
+    if (this.page === "news") {
+      return html`<website-news-band></website-news-band>`;
+    }
+    if (this.page === "about") {
+      return html`
+        <div style="padding: 40px; text-align: center;">
+          <h2>About Putt Pack</h2>
+          <p>Putt Pack is the premier youth golf association in State College, PA. Founded in 2010, we have been developing young golfers and building community ever since.</p>
+        </div>
+      `;
+    }
+    if (this.page === "contact") {
+      return html`
+        <div style="padding: 40px; text-align: center;">
+          <h2>Contact Us</h2>
+          <p>PO Box 1234, State College, PA 16801</p>
+          <p>Email: info@puttpack.org</p>
+          <p>Phone: (814) 555-0123</p>
+        </div>
       `;
     }
     return html`
-        <website-hero-banner></website-hero-banner>
-        <website-stats-band></website-stats-band>
-        <website-schedule></website-schedule>
-        <website-news-band></website-news-band>
+      <website-hero-banner></website-hero-banner>
+      <website-stats-band></website-stats-band>
+      <website-schedule></website-schedule>
+      <website-news-band></website-news-band>
     `;
   }
 }
-
 globalThis.customElements.define(WebsiteRouter.tag, WebsiteRouter);
